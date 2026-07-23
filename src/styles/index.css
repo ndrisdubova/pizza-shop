@@ -2542,7 +2542,7 @@ main {
 }
 
 @media (max-width: 760px) {
-  /* Three notices will not fit on a phone, so keep only the one that sells. */
+  /* Both notices will not fit on a phone, so keep only the opening hours. */
   .announce .wrap > span:not(:first-child),
   .announce .sep {
     display: none;

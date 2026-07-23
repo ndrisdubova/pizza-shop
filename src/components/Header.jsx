@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ArrowRight, Clock, Menu, Phone, ShoppingBag, Truck, X } from 'lucide-react'
+import { ArrowRight, Clock, Menu, Phone, ShoppingBag, X } from 'lucide-react'
 import { selectCartCount } from '../store/cartSlice'
 import { selectCurrentOrder } from '../store/orderSlice'
 
@@ -53,10 +53,6 @@ export default function Header() {
     <>
       <div className="announce">
         <div className="wrap">
-          <span>
-            <Truck aria-hidden="true" /> Delivery across Gjilan · €1.50
-          </span>
-          <i className="sep" aria-hidden="true" />
           <span>
             <Clock aria-hidden="true" /> Open today until 23:00
           </span>
