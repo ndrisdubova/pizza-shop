@@ -93,7 +93,17 @@ export default function Footer() {
 
         <div className="footer-base">
           <span>© {new Date().getFullYear()} Semi&rsquo;s Pizza &amp; Pasta</span>
-          <span>Photography via Unsplash · Built with React, Redux Toolkit &amp; Framer Motion</span>
+          <span>
+            Developed by{' '}
+            <a
+              className="footer-credit"
+              href="https://ndris-dubova.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ndris Dubova
+            </a>
+          </span>
         </div>
       </div>
     </footer>

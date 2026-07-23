@@ -2444,6 +2444,18 @@ main {
   color: var(--on-dark-40);
 }
 
+.footer-credit {
+  color: var(--on-dark-60);
+  text-decoration: none;
+  border-bottom: 1px solid var(--dark-line);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.footer-credit:hover {
+  color: var(--on-dark);
+  border-color: currentColor;
+}
+
 /* ---------- responsive ---------- */
 
 @media (max-width: 1080px) {

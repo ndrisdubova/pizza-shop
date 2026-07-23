@@ -251,7 +251,7 @@ export default function Order() {
                           value={form.name}
                           onChange={update('name')}
                           aria-invalid={Boolean(errors.name)}
-                          placeholder="Ndris Dubova"
+                          placeholder="Your full name"
                           autoComplete="name"
                         />
                         {errors.name && (
