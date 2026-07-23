@@ -1,12 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Mail, MapPin, Phone } from 'lucide-react'
 import { FacebookIcon, InstagramIcon, XIcon } from './SocialIcons'
-
-const HOURS = [
-  ['Monday — Thursday', '11:00 — 23:00'],
-  ['Friday — Saturday', '11:00 — 01:00'],
-  ['Sunday', '12:00 — 22:00'],
-]
+import { SHOP } from '../data/shop'
 
 export default function Footer() {
   return (
@@ -16,25 +11,26 @@ export default function Footer() {
           <div>
             <div className="brand" style={{ marginBottom: 20 }}>
               <span className="brand-mark" aria-hidden="true">
-                S
+                {SHOP.mark}
               </span>
               <span className="brand-text">
-                Semi&rsquo;s
-                <small>Pizza &amp; Pasta</small>
+                {SHOP.name}
+                <small>{SHOP.kind}</small>
               </span>
             </div>
             <p>
-              A wood oven, a pasta board and two people who have been doing this since 2025.
-              Everything is made to order, which is why it takes the time it takes.
+              A wood oven, a pasta board and two people who have been doing this since{' '}
+              {SHOP.foundedYear}. Everything is made to order, which is why it takes the time it
+              takes.
             </p>
             <div className="socials">
-              <a href="#" aria-label="Instagram">
+              <a href={SHOP.social.instagram || '#'} aria-label="Instagram">
                 <InstagramIcon aria-hidden="true" />
               </a>
-              <a href="#" aria-label="Facebook">
+              <a href={SHOP.social.facebook || '#'} aria-label="Facebook">
                 <FacebookIcon aria-hidden="true" />
               </a>
-              <a href="#" aria-label="X">
+              <a href={SHOP.social.x || '#'} aria-label="X">
                 <XIcon aria-hidden="true" />
               </a>
             </div>
@@ -60,7 +56,7 @@ export default function Footer() {
 
           <div>
             <h4>Opening hours</h4>
-            {HOURS.map(([day, time]) => (
+            {SHOP.hours.map(([day, time]) => (
               <div className="hours-row" key={day}>
                 <span>{day}</span>
                 <span>{time}</span>
@@ -74,25 +70,29 @@ export default function Footer() {
               <li>
                 <MapPin aria-hidden="true" />
                 <span>
-                  Gavran 1
+                  {SHOP.street}
                   <br />
-                  Gjilan, Kosovo
+                  {SHOP.city}, {SHOP.country}
                 </span>
               </li>
               <li>
                 <Phone aria-hidden="true" />
-                <a href="tel:+38348303222">+383 048 303 222</a>
+                <a href={`tel:${SHOP.phone.tel}`}>{SHOP.phone.display}</a>
               </li>
-              <li>
-                <Mail aria-hidden="true" />
-                <a href="mailto:hello@semis.example">hello@semis.example</a>
-              </li>
+              {SHOP.email && (
+                <li>
+                  <Mail aria-hidden="true" />
+                  <a href={`mailto:${SHOP.email}`}>{SHOP.email}</a>
+                </li>
+              )}
             </ul>
           </div>
         </div>
 
         <div className="footer-base">
-          <span>© {new Date().getFullYear()} Semi&rsquo;s Pizza &amp; Pasta</span>
+          <span>
+            © {new Date().getFullYear()} {SHOP.fullName}
+          </span>
           <span>
             Developed by{' '}
             <a

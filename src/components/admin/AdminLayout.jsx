@@ -4,6 +4,7 @@ import { ExternalLink, LayoutDashboard, LogOut, ReceiptText, UtensilsCrossed } f
 import { logout, selectUser } from '../../store/authSlice'
 import { selectAllOrders, selectCurrentOrder } from '../../store/orderSlice'
 import { selectSoldOutCount } from '../../store/menuSlice'
+import { SHOP } from '../../data/shop'
 
 export default function AdminLayout() {
   const dispatch = useDispatch()
@@ -23,10 +24,10 @@ export default function AdminLayout() {
       <aside className="rail">
         <div className="rail-brand">
           <span className="brand-mark" aria-hidden="true">
-            S
+            {SHOP.mark}
           </span>
           <span className="brand-text">
-            Semi&rsquo;s
+            {SHOP.name}
             <small>Back office</small>
           </span>
         </div>

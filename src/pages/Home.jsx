@@ -18,6 +18,7 @@ import {
 import { useSelector } from 'react-redux'
 import DishCard from '../components/DishCard'
 import { IMAGES } from '../data/menu'
+import { SHOP } from '../data/shop'
 import { selectFeaturedDishes, selectMenu } from '../store/menuSlice'
 
 const FACTS = [
@@ -362,7 +363,7 @@ export default function Home() {
               Order now
               <ArrowRight aria-hidden="true" />
             </Link>
-            <a className="btn btn-on-dark" href="tel:+38348303222">
+            <a className="btn btn-on-dark" href={`tel:${SHOP.phone.tel}`}>
               Call the restaurant
             </a>
           </div>

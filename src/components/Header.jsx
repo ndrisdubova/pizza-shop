@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowRight, Clock, Menu, Phone, ShoppingBag, X } from 'lucide-react'
 import { selectCartCount } from '../store/cartSlice'
 import { selectCurrentOrder } from '../store/orderSlice'
+import { SHOP } from '../data/shop'
 
 const LINKS = [
   { to: '/', label: 'Home', end: true },
@@ -40,11 +41,11 @@ export default function Header() {
   const brand = (
     <Link to="/" className="brand">
       <span className="brand-mark" aria-hidden="true">
-        S
+        {SHOP.mark}
       </span>
       <span className="brand-text">
-        Semi&rsquo;s
-        <small>Pizza &amp; Pasta</small>
+        {SHOP.name}
+        <small>{SHOP.kind}</small>
       </span>
     </Link>
   )
@@ -54,11 +55,11 @@ export default function Header() {
       <div className="announce">
         <div className="wrap">
           <span>
-            <Clock aria-hidden="true" /> Open today until 23:00
+            <Clock aria-hidden="true" /> Open today until {SHOP.closesToday}
           </span>
           <i className="sep" aria-hidden="true" />
           <span>
-            <Phone aria-hidden="true" /> +383 048 303 222
+            <Phone aria-hidden="true" /> {SHOP.phone.display}
           </span>
         </div>
       </div>
@@ -149,8 +150,8 @@ export default function Header() {
             </nav>
 
             <div className="drawer-foot">
-              <a className="btn btn-outline" href="tel:+38348303222">
-                <Phone aria-hidden="true" /> +383 048 303 222
+              <a className="btn btn-outline" href={`tel:${SHOP.phone.tel}`}>
+                <Phone aria-hidden="true" /> {SHOP.phone.display}
               </a>
               <Link to="/order" className="btn btn-primary">
                 <ShoppingBag aria-hidden="true" />

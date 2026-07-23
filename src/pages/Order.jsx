@@ -36,6 +36,7 @@ import {
 import PlacingOverlay from '../components/PlacingOverlay'
 import OrderTracker from '../components/OrderTracker'
 import { IMAGES } from '../data/menu'
+import { SHOP } from '../data/shop'
 
 const EMPTY_FORM = { name: '', phone: '', address: '', notes: '', method: 'delivery' }
 
@@ -347,7 +348,9 @@ export default function Order() {
                   <div className="card-head">
                     <div>
                       <h2>Summary</h2>
-                      <p>{isPickup ? 'Collection from Gavran 1' : 'Delivered across Gjilan'}</p>
+                      <p>
+                        {isPickup ? `Collection from ${SHOP.street}` : `Delivered across ${SHOP.city}`}
+                      </p>
                     </div>
                     <ShoppingBag aria-hidden="true" style={{ width: 18, height: 18, color: 'var(--ink-40)' }} />
                   </div>

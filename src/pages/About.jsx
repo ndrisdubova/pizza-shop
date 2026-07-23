@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowRight, ChevronRight } from 'lucide-react'
 import { IMAGES } from '../data/menu'
+import { SHOP } from '../data/shop'
 
 const TIMELINE = [
   {
@@ -60,7 +61,7 @@ export default function About() {
             <ChevronRight aria-hidden="true" />
             <span>Our story</span>
           </nav>
-          <span className="label">Since 2025</span>
+          <span className="label">Since {SHOP.foundedYear}</span>
           <h1>A small kitchen that got carried away.</h1>
           <p className="lede">
             One year on Gavran. One oven, one dough recipe, a pasta board and one very reliable
@@ -176,9 +177,7 @@ export default function About() {
         <div className="wrap">
           <div>
             <h2>Come and eat with us.</h2>
-            <p>
-              Gavran 1, Gjilan — or have it brought to you in about thirty minutes.
-            </p>
+            <p>{SHOP.address} — or have it brought to you in about thirty minutes.</p>
           </div>
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
             <Link to="/order" className="btn btn-light">

@@ -20,6 +20,7 @@ import {
   archiveOrder,
   selectCurrentOrder,
 } from '../store/orderSlice'
+import { SHOP } from '../data/shop'
 
 const STAGE_ICONS = {
   placed: ReceiptText,
@@ -84,7 +85,7 @@ export default function OrderTracker() {
                 <RotateCcw aria-hidden="true" />
                 Start another order
               </button>
-              <a className="btn btn-outline" href="tel:+38348303222">
+              <a className="btn btn-outline" href={`tel:${SHOP.phone.tel}`}>
                 <Phone aria-hidden="true" />
                 Call the restaurant
               </a>
@@ -166,7 +167,7 @@ export default function OrderTracker() {
                 {clock(isDone ? order.timestamps[stageIndex] : eta)}
               </div>
               <div className="eta-note">
-                {isPickup ? 'Collection at Gavran 1, Gjilan' : order.customer.address}
+                {isPickup ? `Collection at ${SHOP.address}` : order.customer.address}
               </div>
             </div>
           </div>
@@ -194,7 +195,7 @@ export default function OrderTracker() {
                   <b>Rina is bringing your order</b>
                   <span>Courier · usually 8–12 minutes across town</span>
                 </div>
-                <a className="btn btn-outline btn-sm" href="tel:+38348303222">
+                <a className="btn btn-outline btn-sm" href={`tel:${SHOP.phone.tel}`}>
                   <Phone aria-hidden="true" />
                   Call
                 </a>
@@ -344,7 +345,7 @@ export default function OrderTracker() {
               <div className="reassure" style={{ marginTop: 0, paddingTop: 0, borderTop: 0 }}>
                 <div>
                   <MapPin aria-hidden="true" />
-                  Gavran 1, Gjilan, Kosovo
+                  {SHOP.addressFull}
                 </div>
               </div>
             </div>

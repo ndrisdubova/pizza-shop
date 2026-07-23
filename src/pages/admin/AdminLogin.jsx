@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { AlertCircle, ArrowLeft, Eye, EyeOff, Info, Lock, LogIn } from 'lucide-react'
 import { clearAuthError, login, selectAuthError, selectIsAuthed } from '../../store/authSlice'
 import { IMAGES } from '../../data/menu'
+import { SHOP } from '../../data/shop'
 
 export default function AdminLogin() {
   const dispatch = useDispatch()
@@ -45,11 +46,11 @@ export default function AdminLogin() {
 
         <div className="brand">
           <span className="brand-mark" aria-hidden="true">
-            S
+            {SHOP.mark}
           </span>
           <span className="brand-text" style={{ color: 'var(--on-dark)' }}>
-            Semi&rsquo;s
-            <small>Pizza &amp; Pasta</small>
+            {SHOP.name}
+            <small>{SHOP.kind}</small>
           </span>
         </div>
 
@@ -62,9 +63,7 @@ export default function AdminLogin() {
           </p>
         </div>
 
-        <p style={{ fontSize: '0.75rem', color: 'var(--on-dark-40)' }}>
-          Gavran 1, Gjilan
-        </p>
+        <p style={{ fontSize: '0.75rem', color: 'var(--on-dark-40)' }}>{SHOP.address}</p>
       </aside>
 
       <div className="login-main">
